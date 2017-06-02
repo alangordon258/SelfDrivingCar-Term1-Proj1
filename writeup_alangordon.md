@@ -59,5 +59,3 @@ One potential shortcoming of this approach is extremely tight curves. Take a loo
 ### 3. Suggest possible improvements to your pipeline
 
 One possible improvement would be to to make the masking region dynamic. In particular, on a tightly curved road, the lines closest to the car would have a slope within a well defined range, but the range should be wider the farther we got away from the car. So for detected lines closer to the car we may want to have a narrower range for the slope filter than we would apply for detected lines farther from the car. Also, in a real world application we could potentially use mapping data and GPS to determine when we were approaching a curve and to approximate the radius of the curve. Unfortunately, this would not work well in areas where the GPS signal was impeded by tall buildlings or other interference. Another solution would be to take advantage of the fact that the curvature of roads tends to change in a gradual way. In other words, if calculating the average slopes of the lines differs by too much from the previous video frame, we could apply a "smoothing" algorithm. 
-
-Another potential improvement could be to ...
