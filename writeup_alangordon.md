@@ -42,7 +42,7 @@ In order to understand what was going on, I reverted to using the unmodified, Ho
 
 ![alt text][image4]
 
-The solution was to use a bandpass filter of sorts. Based on looking at the slopes of the line segments, it was clear that there are only certain slopes that could possibly equate to a lane line. This slope would vary depending on the camera used and how it was mounted, and it would vary as the road curved, but a slope near zero, for example, would be impossible. So, I added logic to filter out slopes except those within a reasonable range. I came up with a separate range for both the right and left lane lines. The values I used were: 0.4 to 0.7 for the right lane and -0.9 to -0.6 for the left lane. Tuning these for the challenge video were, the hardest because when the road curves, the slope of the lanes will vary and that variance will be greater, the tighter that the curve is. Upon implementing this algorithm, the same still image shown above looks as shown below and this is my final result. All of the other images also worked well.
+The solution was to use a bandpass filter of sorts. Based on looking at the slopes of the line segments, it was clear that there are only certain slopes that could possibly equate to a lane line. This slope would vary depending on the camera used and how it was mounted, and it would vary as the road curved, but a slope near zero, for example, would be impossible. So, I added logic to filter out slopes except those within a reasonable range. I came up with a separate range for both the right and left lane lines. The values I used were: 0.5 to 0.8 for the right lane and -0.9 to -0.6 for the left lane. Tuning these for the challenge video were, the hardest because when the road curves, the slope of the lanes will vary and that variance will be greater, the tighter that the curve is. Upon implementing this algorithm, the same still image shown above looks as shown below and this is my final result. All of the other images also worked well.
 
 ![alt text][image8]
 
@@ -51,7 +51,7 @@ The solution was to use a bandpass filter of sorts. Based on looking at the slop
 ### 2. Identify potential shortcomings with your current pipeline
 
 
-One potential shortcoming of this approach is extremely tight curves. Take a look at the following curve which is the famous hairpin on the circuit for the Monaco Grand Prix. This is actually a public road as you can see here. I suspect that my algorithm would not work well on this particular road or at least the range of slopes for possible lane lines would have to be widened so much that it would reintroduce the spurious lines. If Udacity would like to pay for me to travel to Monaco to test if my algorithm would work and to gather video data that could be used in future classes, I am available for such work!
+One potential shortcoming of this approach is extremely tight curves. Take a look at the following curve which is the famous hairpin on the circuit for the Monaco Grand Prix. This is actually a public road as you can see here. I suspect that my algorithm would not work well on this particular road or at least the range of slopes for possible lane lines would have to be widened so much that it may reintroduce the spurious lines. If Udacity would like to pay for me to travel to Monaco to test if my algorithm would work and to gather video data that could be used in future classes, I am available for such work!
 
 ![alt text][image10]
 
